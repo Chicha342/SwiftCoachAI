@@ -6,9 +6,9 @@ struct OnboardingView: View {
     @State private var currentTab: Int = 0
     
     let onboardingData: [OnboardingTab] = [
-        OnboardingTab(image: "swift", text: "Learn Swift Your Way", semiText: "Learn Swift from the basics to advanced concepts with a personalized learning experience."),
-        OnboardingTab(image: "chevron.left.forwardslash.chevron.right", text: "Your AI Coding Mentor", semiText: "Ask questions, explore complex topics, and get instant explanations from your personal AI mentor."),
-        OnboardingTab(image: "dumbbell", text: "Build Real Skills", semiText: "Solve coding challenges, write real code, and turn your knowledge into practical iOS development skills.")
+        OnboardingTab(image: "OnboardingTab1", text: "Learn Swift Your Way", semiText: "Learn Swift from the basics to advanced concepts with a personalized learning experience."),
+        OnboardingTab(image: "OnboardingTab2", text: "Your AI Coding Mentor", semiText: "Ask questions, explore complex topics, and get instant explanations from your personal AI mentor."),
+        OnboardingTab(image: "OnboardingTab3", text: "Build Real Skills", semiText: "Solve coding challenges, write real code, and turn your knowledge into practical iOS development skills.")
     ]
     
     var body: some View {
@@ -16,6 +16,42 @@ struct OnboardingView: View {
             BackgroundView()
             
             VStack {
+                HStack{
+                    Image(systemName: "swift")
+                        .foregroundStyle(.orange)
+                        .font(.system(size: 25))
+                        .padding()
+                        .frame(width: 40, height: 40)
+                        .background(.white)
+                        .cornerRadius(20)
+                    
+                    VStack(alignment: .leading){
+                        Text("SwiftCoachAI")
+                            .foregroundStyle(.white)
+                            .font(.custom("Nohemi-Bold", size: 17))
+                    }
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        withAnimation {
+                            isShowOnboarding = true
+                        }
+                    }, label: {
+                        Text("Skip")
+                            .foregroundStyle(.white)
+                            .font(.custom("Nohemi-Bold", size: 17))
+                            .padding()
+                            .background(Color.black.opacity(0.24))
+                            .cornerRadius(20)
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(.white.opacity(0.24))
+                            }
+                    })
+                }
+                .padding(.horizontal)
+                
                 onboardingData[currentTab]
                     .id(currentTab)
                     .transition(
@@ -27,9 +63,9 @@ struct OnboardingView: View {
                 
                 HStack {
                     ForEach(0..<onboardingData.count, id: \.self) { index in
-                        Circle()
+                        RoundedRectangle(cornerRadius: 100)
                             .fill(index == currentTab ? Color.white : Color.white.opacity(0.4))
-                            .frame(width: 8, height: 8)
+                            .frame(width:index == currentTab ? 16 : 8, height: 8)
                     }
                 }
                 .padding(.top)
@@ -47,11 +83,17 @@ struct OnboardingView: View {
                         .foregroundStyle(.orange)
                         .font(.custom("Nohemi-SemiBold", size: 16))
                         .padding()
+                        .frame(maxWidth: .infinity)
                         .background(.white)
-                        .cornerRadius(10)
+                        .cornerRadius(20)
+                        .padding(.horizontal)
                 })
                 .padding(.top, 6)
             }
         }
     }
+}
+
+#Preview {
+    OnboardingView(isShowOnboarding: .constant(true))
 }

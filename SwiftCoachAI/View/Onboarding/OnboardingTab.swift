@@ -7,23 +7,20 @@ struct OnboardingTab: View {
     
     var body: some View {
         VStack{
-            Image(systemName: image)
-                .foregroundStyle(.orange)
-                .font(.system(size: 100))
-                .padding()
-                .frame(width: 140, height: 140)
-                .background(.white)
-                .cornerRadius(20)
+            Image(image)
+                .resizable()
+                .frame(maxWidth: .infinity, maxHeight: 330)
             
             Text(text)
                 .foregroundStyle(.white)
-                .font(.custom("Nohemi-Bold", size: 20))
+                .font(.custom("Nohemi-Bold", size: 40))
                 .padding(.top)
+                .multilineTextAlignment(.center)
             
             Text(semiText)
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.white)
-                .font(.custom("Nohemi-Regilar", size: 14))
+                .font(.custom("Nohemi-Regilar", size: 16))
                 .padding(.top, 6)
                 
         }
@@ -35,6 +32,6 @@ struct OnboardingTab: View {
     ZStack{
         BackgroundView()
         
-        OnboardingTab(image: "swift", text: "Learn Swift Your Way", semiText: "Learn Swift from the basics to advanced concepts with a personalized learning experience.")
+        OnboardingTab(image: "OnboardingTab1", text: "Learn Swift Your Way", semiText: "Learn Swift from the basics to advanced concepts with a personalized learning experience.")
     }
 }

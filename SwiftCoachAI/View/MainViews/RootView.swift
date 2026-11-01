@@ -18,7 +18,7 @@ struct RootView: View {
                     .id("SkillsPicker")
                     .transition(.opacity.combined(with: .scale(scale: 0.95)))
             } else {
-                HomeView()
+                TabBarView()
                     .environmentObject(MainViewModel())
                     .transition(.opacity)
             }

@@ -47,7 +47,7 @@ enum UserLevel: String, CaseIterable, Hashable, Identifiable {
 
 @MainActor
 final class MainViewModel: ObservableObject{
-    @Published var userName: String = ""
+    @Published var userName: String = "User1444"
     @Published var currentUserLevel: UserLevel = .new
-    
+    @Published var daysOfStreak: Int = 0
 }

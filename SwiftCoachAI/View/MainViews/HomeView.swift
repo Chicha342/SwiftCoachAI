@@ -10,27 +10,10 @@ struct HomeView: View {
             BackgroundView()
             
             VStack{
-                Text("Your skill level: \(viewModel.currentUserLevel.title)")
-                    .foregroundStyle(.white)
-                    .font(.custom("Nohemi-Bold", size: 20))
-                
-                Text("Your Username: \(viewModel.userName)")
-                    .foregroundStyle(.white)
-                    .font(.custom("Nohemi-Bold", size: 20))
-                
-                Button(action: {
-                    withAnimation(.easeInOut(duration: 0.4)) {
-                        hasCompletedOnboarding = false
-                        hasCompletedSkills = false
-                    }
-                }, label: {
-                    Text("Reset")
-                        .foregroundStyle(.white)
-                        .font(.custom("Nohemi-Bold", size: 20))
-                        .padding()
-                        .background(.orange)
-                        .cornerRadius(20)
-                })
+                Header(typeOfHeader: .home)
+                ScrollView{
+                    
+                }
             }
         }
     }

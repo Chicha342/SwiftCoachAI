@@ -52,6 +52,8 @@ struct OnboardingView: View {
                 }
                 .padding(.horizontal)
                 
+                Spacer()
+                
                 onboardingData[currentTab]
                     .id(currentTab)
                     .transition(
@@ -69,6 +71,8 @@ struct OnboardingView: View {
                     }
                 }
                 .padding(.top)
+                
+                Spacer()
                 
                 Button(action: {
                     withAnimation(.easeInOut(duration: 0.35)) {

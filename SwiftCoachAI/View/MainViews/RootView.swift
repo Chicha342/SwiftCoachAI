@@ -7,6 +7,8 @@ struct RootView: View {
     
     var body: some View {
         ZStack{
+            BackgroundView()
+            
             if !hasCompletedOnboarding {
                 OnboardingView(isShowOnboarding: $hasCompletedOnboarding)
                     .id("Onboarding")

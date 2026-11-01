@@ -17,6 +17,32 @@ enum UserLevel: String, CaseIterable, Hashable, Identifiable {
         case .senior: return "Senior"
         }
     }
+    
+    var subtitle: String{
+        switch self {
+        case .new:
+            return "Just getting started"
+        case .junior:
+            return "Know the basics"
+        case .middle:
+            return "Comfortable with SwiftUI"
+        case .senior:
+            return "Architecture and performance"
+        }
+    }
+    
+    var icon: String{
+        switch self {
+        case .new:
+            return "newLevelIcon"
+        case .junior:
+            return "JuniorLevelIcon"
+        case .middle:
+            return "middleLevelIcon"
+        case .senior:
+            return "SeniorLevelIcon"
+        }
+    }
 }
 
 @MainActor

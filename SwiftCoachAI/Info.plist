@@ -4,12 +4,18 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Outfit-Bold.ttf</string>
 		<string>Nohemi-Bold.ttf</string>
 		<string>Nohemi-Light.otf</string>
 		<string>Nohemi-Medium.otf</string>
 		<string>Nohemi-Regular.otf</string>
 		<string>Nohemi-SemiBold.otf</string>
 		<string>SourceSansSchoolBold.ttf</string>
+		<string>Outfit-Light.ttf</string>
+		<string>Outfit-Medium.ttf</string>
+		<string>Outfit-Regular.ttf</string>
+		<string>Outfit-SemiBold.ttf</string>
+		<string>Outfit-ExtraBold.ttf</string>
 	</array>
 </dict>
 </plist>

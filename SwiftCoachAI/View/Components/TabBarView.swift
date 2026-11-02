@@ -73,29 +73,3 @@ struct TabBarView: View {
             .environmentObject(MainViewModel())
     }
 }
-
-enum ScreensTabbarEnum: CaseIterable {
-    case home, chat, notes
-    
-    var names: String {
-        switch self {
-        case .home:
-            return "Home"
-        case .chat:
-            return "Chat"
-        case .notes:
-            return "Notes"
-        }
-    }
-    
-    var images: String {
-        switch self {
-        case .home:
-            return "house"
-        case .chat:
-            return "bubble"
-        case .notes:
-            return "document"
-        }
-    }
-}

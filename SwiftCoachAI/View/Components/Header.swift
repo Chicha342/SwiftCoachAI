@@ -85,9 +85,3 @@ struct Header: View {
         }
     }
 }
-
-enum headerType {
-    case home
-    case chat
-    case notes
-}

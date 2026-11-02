@@ -10,6 +10,18 @@ struct OnboardingTab: View {
             Image(image)
                 .resizable()
                 .frame(maxWidth: .infinity, maxHeight: 330)
+                .mask {
+                    LinearGradient(
+                        stops: [
+                            .init(color: .clear, location: 0),
+                            .init(color: .white, location: 0.08),
+                            .init(color: .white, location: 0.92),
+                            .init(color: .clear, location: 1)
+                        ],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                }
             
             Text(text)
                 .foregroundStyle(.white)
@@ -22,7 +34,7 @@ struct OnboardingTab: View {
                 .foregroundStyle(.white)
                 .font(.custom("Nohemi-Regilar", size: 16))
                 .padding(.top, 6)
-                
+            
         }
         .padding(.horizontal)
     }

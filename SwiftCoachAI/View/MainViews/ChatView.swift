@@ -6,7 +6,7 @@ struct ChatView: View {
             BackgroundView()
             
             VStack{
-                Header(typeOfHeader: .chat)
+                Header(typeOfHeader: .chat, action: { })
                 ScrollView{
                     
                 }

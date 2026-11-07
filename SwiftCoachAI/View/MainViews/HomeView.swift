@@ -2,30 +2,52 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var viewModel: MainViewModel
-    @AppStorage("HasCompletedOnboarding") private var hasCompletedOnboarding = true
-    @AppStorage("HasCompletedSkills") private var hasCompletedSkills = true
+    
+    @State private var isShowSettingsView = false
+    
+    let service = NewsService()
     
     var body: some View {
         ZStack{
             BackgroundView()
             
             VStack{
-                Header(typeOfHeader: .home)
+                Header(typeOfHeader: .home, action: {
+                    withAnimation {
+                        isShowSettingsView = true
+                    }
+                })
                 ScrollView{
-                    Button(action: {
-                        withAnimation(.easeInOut(duration: 0.4)) {
-                            hasCompletedOnboarding = false
-                            hasCompletedSkills = false
+                    VStack{
+                        LineHomeViewConteiner(text: "Swift News", image: "swift")
+                        .padding(.top)
+                        .padding(.horizontal)
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 20) {
+                                ForEach(viewModel.news) { article in
+                                    NewsContainer(newsItem: article)
+                                }
+                            }
+                            .padding(.horizontal)
                         }
-                    }, label: {
-                        Text("Reset")
-                            .foregroundStyle(.white)
-                            .font(.custom("Nohemi-Bold", size: 20))
-                            .padding()
-                            .background(.orange)
-                            .cornerRadius(20)
-                    })
+
+                    }
                 }
+            }
+            
+            if isShowSettingsView == true {
+                Color.black.opacity(0.30)
+                    .ignoresSafeArea()
+                
+                SettingsView(isOpenSettings: $isShowSettingsView)
+            }
+        }
+        .task {
+            do {
+                viewModel.news = try await service.fetchNews(tag: "swift")
+            } catch {
+                print("News error:", error)
             }
         }
     }

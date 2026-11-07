@@ -76,3 +76,14 @@ enum UserLevel: String, CaseIterable, Hashable, Identifiable {
         }
     }
 }
+
+struct NewsArticle: Decodable, Identifiable {
+    let id: Int
+    let title: String
+    let description: String?
+    let cover_image: String?
+    let url: String
+    let published_at: String
+    let tag_list: [String]
+    let reading_time_minutes: Int
+}

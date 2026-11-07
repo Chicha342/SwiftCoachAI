@@ -9,7 +9,6 @@ struct SkillsPickerView: View {
             BackgroundView()
             
             VStack{
-                
                 HStack{
                     Image(systemName: "swift")
                         .foregroundStyle(.orange)

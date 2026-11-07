@@ -27,4 +27,6 @@ final class MainViewModel: ObservableObject{
         
         daysOfStreak = UserDefaults.standard.integer(forKey: "daysOfStreak")
     }
+    
+    @Published var news: [NewsArticle] = []
 }

@@ -6,7 +6,7 @@ struct NotesView: View {
             BackgroundView()
             
             VStack{
-                Header(typeOfHeader: .notes)
+                Header(typeOfHeader: .notes, action: { })
                 ScrollView{
                     
                 }

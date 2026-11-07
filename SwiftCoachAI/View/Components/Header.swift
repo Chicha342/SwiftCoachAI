@@ -4,6 +4,8 @@ struct Header: View {
     var typeOfHeader: headerType = .home
     @EnvironmentObject var viewModel: MainViewModel
     
+    let action: () -> Void
+    
     var body: some View {
         VStack{
             switch typeOfHeader {
@@ -45,7 +47,7 @@ struct Header: View {
                         .padding(.leading)
                         
                         Button(action: {
-                            
+                            action()
                         }, label: {
                             Image(systemName: "gear")
                                 .foregroundStyle(.white)
@@ -78,7 +80,7 @@ struct Header: View {
         BackgroundView()
         
         VStack{
-            Header()
+            Header(action: { })
                 .environmentObject(MainViewModel())
             
             Spacer()

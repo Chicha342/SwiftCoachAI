@@ -9,7 +9,7 @@ struct OnboardingTab: View {
         VStack{
             Image(image)
                 .resizable()
-                .frame(maxWidth: .infinity, maxHeight: 330)
+                .frame(maxWidth: .infinity, maxHeight: 320)
                 .mask {
                     LinearGradient(
                         stops: [

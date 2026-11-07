@@ -19,6 +19,15 @@ struct HomeView: View {
                 })
                 ScrollView{
                     VStack{
+                        LineHomeViewConteiner(text: "Activity Calendar", image: "calendar")
+                            .padding(.top)
+                            .padding(.horizontal)
+                        
+                        CalendarView()
+                        
+                        TipContainerView()
+                            .padding(.top, 5)
+                        
                         LineHomeViewConteiner(text: "Swift News", image: "swift")
                         .padding(.top)
                         .padding(.horizontal)
@@ -33,6 +42,7 @@ struct HomeView: View {
                         }
 
                     }
+                    .padding(.bottom, 167)
                 }
             }
             

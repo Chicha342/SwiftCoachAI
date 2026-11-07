@@ -34,10 +34,11 @@ struct SettingsView: View {
                         hasCompletedSkills = false
                     }
                 }, label: {
-                    Text("Reset")
+                    Text("Back To Onboarding")
                         .foregroundStyle(.white)
                         .font(.custom("Nohemi-Bold", size: 20))
                         .padding()
+                        .frame(maxWidth: .infinity)
                         .background(.orange)
                         .cornerRadius(20)
                 })

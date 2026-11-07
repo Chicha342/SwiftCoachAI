@@ -4,6 +4,9 @@ struct SplashView: View {
     @State private var showIcon = false
     @State private var showText = false
     
+    let service = NewsService()
+    @EnvironmentObject var viewModel: MainViewModel
+    
     var body: some View {
         ZStack{
             BackgroundView()
@@ -39,6 +42,13 @@ struct SplashView: View {
             
             withAnimation(.easeOut(duration: 0.6).delay(0.25)) {
                 showText = true
+            }
+        }
+        .task {
+            do {
+                viewModel.news = try await service.fetchNews(tag: "swift")
+            } catch {
+                print("News error:", error)
             }
         }
     }

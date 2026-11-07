@@ -6,7 +6,7 @@ final class NewsService {
         var mainUrl = URLComponents(string: "https://dev.to/api/articles")!
         
         mainUrl.queryItems = [
-            URLQueryItem(name: tag, value: tag),
+            URLQueryItem(name: "tag", value: tag),
             URLQueryItem(name: "per_page", value: "10")
         ]
         

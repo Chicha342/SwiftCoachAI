@@ -8,15 +8,29 @@ struct NewsContainer: View {
     var body: some View {
         VStack(){
             ZStack(alignment: .topLeading){
-                AsyncImage(url: URL(string: newsItem.cover_image ?? "")) { image in
-                    image
-                        .resizable()
-                        .scaledToFill()
-                } placeholder: {
-                    ProgressView()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                AsyncImage(url: URL(string: newsItem.cover_image ?? "")) { phase in
+                    switch phase {
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .scaledToFill()
+
+                    case .failure:
+                        Image(systemName: "photo")
+                            .font(.system(size: 32))
+                            .foregroundStyle(.orange)
+
+                    case .empty:
+                        Image("photoPlaceholder")
+                            .resizable()
+                            .scaledToFill()
+                        
+                    @unknown default:
+                        EmptyView()
+                    }
                 }
                 .frame(width: 343, height: 188)
+                .background(.black.opacity(0.08))
                 .clipped()
                 
                     Text(formattedDate(newsItem.published_at))

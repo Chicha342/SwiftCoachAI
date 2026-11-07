@@ -5,6 +5,8 @@ struct RootView: View {
     @AppStorage("HasCompletedOnboarding") private var hasCompletedOnboarding = false
     @AppStorage("HasCompletedSkills") private var hasCompletedSkills = false
     
+    @EnvironmentObject var viewModel: MainViewModel
+    
     var body: some View {
         ZStack{
             BackgroundView()
@@ -38,10 +40,12 @@ struct RootView: View {
                     isShowSplash = false
                 }
             }
+            viewModel.markTodayAsActive()
         }
     }
 }
 
 #Preview {
     RootView()
+        .environmentObject(MainViewModel())
 }

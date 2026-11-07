@@ -5,6 +5,7 @@ struct SwiftCoachAIApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(MainViewModel())
         }
     }
 }

@@ -77,7 +77,7 @@ enum UserLevel: String, CaseIterable, Hashable, Identifiable {
     }
 }
 
-struct NewsArticle: Decodable, Identifiable {
+struct NewsArticle: Codable, Identifiable {
     let id: Int
     let title: String
     let description: String?
